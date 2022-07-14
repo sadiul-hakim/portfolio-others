@@ -1,0 +1,412 @@
+*{
+margin: 0;
+padding: 0
+}
+body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color:black
+}
+/* navbar------------------------------------------------------style sheet */
+.button{
+padding: 0;
+border: 0;
+margin-right:20px
+}
+.colour{
+background-image: linear-gradient(to right, black 40% ,#4C0027)
+}
+.logodiv{
+transition:200ms;
+}
+.logodiv:hover{
+transform:rotate(-6deg)  scale(1.25);
+}
+.brand{
+color:#B0FA00
+}
+.logo{
+color:white;
+padding:20px 0 0 30px;
+  font-size: 2.5rem;
+}
+.logo:hover{
+color:#D3CEDF;
+}
+
+.itemColor:hover{
+background-color:#B0FA00;
+transition:.45s ease-in-out background-color;
+border-radius:20px
+}
+.inline{
+font-family: 'Redressed', cursive;
+text-decoration: none;
+color:black;
+font-weight: 500;
+padding:10px 100px 0 ;
+font-size:1.9rem;
+}
+.inline:hover{color: black;
+}
+.collpase-style{
+margin:0 30px;
+background-color:#5F3CFA;
+padding-bottom: 11.5px;
+color:#B09B71;
+margin-left: 0
+}
+img{
+color: black;
+background-color:#4C0027;
+height:35px;
+width: 35px
+}
+
+/* home.ejs---------------------------------------------------------style sheet */
+
+/* controlling BG opasity */
+.home{
+background-color: black;
+color:white;
+font-weight: 700;
+font-size:1.9rem;
+font-family: 'Nanum Myeongjo', serif;
+position: relative;
+height:915px;
+width: 100%;
+clip-path:polygon(0 0,100% 0,100% 100%,20% 85%,0 100%)
+}
+.home::before{
+content:"";
+position: absolute;
+top: 0;
+bottom: 0;
+right: 0;
+left: 0;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+background-image:url("/photos/background1.jpg");
+opacity:.85}
+
+/* opasity --------------------------------------------ends----------------------------> */
+.hire{font-size: 1.2rem;
+font-weight: 500;
+transform: translatex(200px);}
+.col-md-7,.col-md-5{
+padding-top: 50px;
+position: relative;
+}
+.col-md-5{
+padding-top:10px
+}
+.name{
+font-weight:900;
+font-size: 2.9rem
+}
+.web-dev{
+color:#B0FA00;
+transition:400ms;
+line-height:1.3rem;
+font-size:2.35rem
+}
+.web-dev:hover{
+font-size:2.55rem
+}
+.jilani{
+width: 100%;
+height: 650px;
+background: transparent
+}
+
+/* about.ejs-----------------------------------------style sheet-------> */
+.about-style{
+color:#FF1700;
+line-height:1.5rem;
+transition:400ms;
+font-size:2.35rem
+}
+.data{
+color:#FF1700;
+font-size:1.2rem;
+}
+
+.card-text{
+font-family: 'Gantari', sans-serif;
+}
+.text{
+max-width: 100px;
+justify-content: center;
+}
+
+.about-me{
+width: 100%;
+height:100px;
+padding:0 auto
+}
+.who{
+color: white;
+font-size:1.3rem;
+padding: 07px;
+font-weight: 600;
+}
+.hr1,.hr,.who{
+display: inline-block;
+}
+
+.hr,.hr1{
+width:20%;
+min-width:2%;
+height:7px;
+border: none;
+background-color: white
+}
+
+.hr1{
+margin-left: 85px
+}
+.passport-pic{
+background-color: #1B2430;
+border: 4px solid #B0FA00;
+border-radius: 50%;
+margin:78px 0 0 150px ;
+height: 315px;
+width:220px
+}
+.about-style:hover{
+font-size:2.55rem
+}
+.about{
+min-height: 600px;
+width:100%;
+background:linear-gradient(to bottom,black 20%,#1B2430)
+}
+.about h1{
+text-align: center;
+padding-top:65px;
+color: white
+}
+.card{
+box-shadow:-10px 10px 4px 3px #E4DCCF;
+transition: 200ms ease-in-out
+}
+/* .card:hover{
+transform: scale(1.02);
+box-shadow:-10px 10px 4px 3px #B0FA00;
+} */
+.col-lg-7{
+margin:35px 0 40px
+}
+.card-title{
+font-size:2rem;
+font-size: 600;
+padding-bottom:10px
+}
+/* works(carousel)--------------------------------------------------------------------------> */
+.works,.carousel-item{
+height:720px;
+background-color:#141E27
+ }
+.carousel-item{
+padding: 50px 70px;
+height: 600px;
+}
+.works img{
+border: 7px solid #B0FA00
+}
+.carousel-caption{
+padding-bottom:30px
+}
+.works h1{
+text-align: center;
+padding-top:65px;
+color: white
+}
+
+a .fa-10x{font-size: 19.7rem;
+    display: flex;
+    justify-content: center;
+    transform: translateY(10px);
+    color: wheat;}
+
+/* modal------------------------------------------->> */
+.modal-header{
+background-color:#B0FA00;
+color:black
+}
+
+/* skills----------------------------------------------> */
+.skills{
+padding:70px 10px;
+background-color: #212121}
+.col-md-4{padding: 30px;
+}
+
+.progress{
+  margin:5px 0;
+  background-color: #000000;
+}
+
+ .progress-bar{
+  background: linear-gradient(to left,#4C3A51,#4C0027);
+}
+ .skills .card{
+background-color:#CDF0EA;
+box-shadow:-10px 10px 4px 3px #97C4B8
+}
+
+.card:hover{
+transform: scale(1.02);
+box-shadow:-10px 10px 4px 3px #B0FA00;
+}
+.font{
+padding: 0 10px;
+color:#267022;
+}
+
+/* footer------------------------------------------------> */
+.hire-me{
+color:white;
+padding: 20px 0;
+height:150px;
+background-color:#413F42;
+text-align: center;
+}
+.hire-me .btn{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.footer{
+width:100%;
+min-height:769px;
+background-color:#212121;
+color:white;
+
+}
+.footer .container{
+max-width: 90%
+}
+.footer h1{
+font-size: 2.7rem;
+text-align: center;}
+.footer h2,.footer h5{
+font-size: 1.5rem;
+text-align: center;}
+.footer h2{
+margin-top:40px
+}
+.flex-sm-row p{
+margin: 0 auto
+}
+
+form input,textarea{
+margin: 10px 0
+}
+form{
+margin:0 50px
+}
+
+
+.btn-send {
+  -webkit-border-radius: 32;
+  -moz-border-radius: 32;
+  border-radius: 32px;
+  text-shadow: 1px 3px 4px #666666;
+  font-family: Arial;
+  color: #000000;
+  font-size: 20px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  border: solid #ff0063 2px;
+  text-decoration: none;
+}
+
+.btn-send:hover {
+color:white;
+  background: #ff0063;
+  text-decoration: none;
+}
+.form-box{
+border:5px solid black;
+background-color: #323033;
+border-radius:20px;
+padding: 15px 0
+}
+.form-box:hover{
+box-shadow:-5px 5px 3px 0 #ff0063
+}
+
+/* social--------------------------------------------------------------------------- */
+.nav a{
+    max-width: 130px;
+text-decoration: none;
+padding-top: 40px;
+}
+.nav{min-height: 30vh;}
+.nav span{
+
+opacity: 0;
+display:flex;
+justify-content: center;
+font-size: 1.7rem;
+padding:0 5px;
+transform: translateY(30px);
+transition: 1000ms;
+}
+.nav i{display: flex;
+color: white;
+    justify-content: center;}
+.mail{padding-left: 40px;
+}
+.nav i:hover{color: #ff0063}
+.nav i:hover+span{
+opacity: 1;
+transform: translatey(-7px);
+color: #ff0063}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width:768px) {
+.hire{
+transform: translatex(300px)
+}
+.col-lg-7{
+margin-top: 78px
+}
+.hr1{
+margin-left: 270px
+}
+.home{
+height:570px
+}
+.carousel-item{padding: 50px 175px;
+}
+.ul{
+margin-left: auto
+}
+.home .col-md-7,.col-md-5{
+  padding-top: 125px;
+  position: relative;
+  }
+.col-md-5{
+padding-top:50px
+}
+.inline{
+color:lightblue;
+  padding:10px 10px 10px 10px;
+  border-left:50px;
+}}

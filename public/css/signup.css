@@ -1,0 +1,91 @@
+html,body {
+  height: 100%;
+}
+
+body {
+background: linear-gradient(to right, #990000 20% ,#FF5B00 );
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.txt{
+font-size: 1.3rem;
+font-weight: 400;
+}
+.hr{
+border-style: none none inset none;
+margin: 0;
+padding: 0;
+border-width: 7px;
+border-color: black
+}
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+}
+.button{
+padding: 0;
+margin: 0;
+border-radius:7px
+}
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+i{
+margin-bottom:20px
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.horizon{ background-color: black;
+width: 1px;
+display:inline-block;
+position: relative;
+top:80px;
+left:-200px;
+height:200px;
+}
+.horizon2{ background-color: black;
+width: 1px;
+display:inline-block;
+position: relative;
+top: 350px;
+left: -255px;
+height:200px;
+}
+.h1{
+    display: inline-block;
+    position: relative;
+    left: -215px;
+    top: 130px;
+}
+.mar{
+margin-left: 80px
+}
+.box{
+box-shadow: -10px 10px 10px 10px;
+height:550px ;
+width:350px;
+padding: 30px
+}
+.border2{
+border-top-left-radius: 0;
+  border-top-right-radius: 0
+}
+.border{
+border-bottom-left-radius:0;
+border-bottom-right-radius:0
+}
+.py-10px{
+padding-bottom:25px
+}

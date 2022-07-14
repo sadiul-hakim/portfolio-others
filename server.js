@@ -12,7 +12,7 @@ const path = require("path");
 const ejs = require("ejs");
 const passport = require("passport");
 const session = require("express-session");
-const findOrCreate=require("mongoose-findorcreate");
+const findOrCreate = require("mongoose-findorcreate");
 const passportLocalMongoose = require("passport-local-mongoose");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -26,7 +26,7 @@ const Storage = multer.diskStorage({
     cb(null, './public/upload')
   },
   filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now()+path.extname(file.originalname);
+    const uniqueSuffix = Date.now() + path.extname(file.originalname);
     cb(null, file.fieldname + '_' + uniqueSuffix)
   }
 });
@@ -56,9 +56,9 @@ const userSchema = new mongoose.Schema({
   // username:String,
   // email: String,
   // password: String,
-facebookId:String,
-githubId:String,
-googleId:String,
+  facebookId: String,
+  githubId: String,
+  googleId: String,
   // comment: [{
   //   title: String,
   //   content: String,
@@ -78,14 +78,14 @@ const UserData = mongoose.model("UserData", userSchema);
 passport.use(UserData.createStrategy());
 
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
   done(null, user.id);
 });
 
-passport.deserializeUser(function(id, done) {
-  UserData.findById(id,function(err,user){
-done(err,user);
-});
+passport.deserializeUser(function (id, done) {
+  UserData.findById(id, function (err, user) {
+    done(err, user);
+  });
 });
 
 // // google strategy------------------------
@@ -144,14 +144,15 @@ done(err,user);
 //   });
 
 // signup route
-app.get("/",(req,res)=>{
-  imageModel.find((err,docs)=>{
-  if (err) {
-    throw err
-  } else {
+app.get("/", (req, res) => {
+  imageModel.find((err, docs) => {
+    if (err) {
+      throw err
+    } else {
 
-    res.render("partials/index",{day:year.getYear(),records:docs})
-  }})
+      res.render("partials/index", { day: year.getYear(), records: docs })
+    }
+  })
 });
 
 
@@ -176,7 +177,7 @@ app.get("/",(req,res)=>{
 //   const users=new UserData({email: email, username :username});
 //     UserData.register(users, password, (err,user) => {
 //       if (err) {
-     
+
 //         res.redirect("/signup")
 //       } else {
 //         passport.authenticate("local")(req,res,() => {
@@ -213,75 +214,81 @@ app.get("/",(req,res)=>{
 
 
 // -------------------ROUTES-------------------------------------------------------->
-app.get("/thanks/:param",(req,res)=>{
-switch (req.params.param) {
-  case ("thanks"):
+app.get("/thanks/:param", (req, res) => {
+  switch (req.params.param) {
+    case ("thanks"):
 
-  res.send("Thank you!! I ( jilani ) have received your massage...i will get back to you soon!!❤😊")
-
-    break;
-    case ("failureMessage"):
-    res.send("failed-loggin.Only for admins")
+      res.send("Thank you!! I ( jilani ) have received your massage...i will get back to you soon!!❤😊")
 
       break;
-  default:
-    res.send("failed")
-}
+    case ("failureMessage"):
+      res.send("failed-loggin.Only for admins")
+
+      break;
+    default:
+      res.send("failed")
+  }
 });
 
-app.post("/login", function(req,res) {
-const {email,password}=req.body;
+app.post("/login", function (req, res) {
+  const { email, password } = req.body;
 
-const user=new UserData({
-email:email,
-password:password
+  const user = new UserData({
+    email: email,
+    password: password
+  });
+
+  req.login(user, function (err) {
+    if (err) { } else {
+      passport.authenticate("local", { failureRedirect: '/thanks/failureMessage', failureMessage: true })(req, res, function () {
+        res.redirect("/");
+      })
+    }
+  });
+
 });
 
-req.login(user,function(err){
-if(err){}else{passport.authenticate("local", {failureRedirect: '/thanks/failureMessage', failureMessage:true })(req,res,function() {
-res.redirect("/");
-})}
-});
-
-});
 
 
+app.route("/Input").get((req, res) => {
+  if (req.isAuthenticated()) {
 
- app.route("/Input").get((req,res)=>{
-if(req.isAuthenticated()){
+    res.render("partials/input")
 
-res.render("partials/input")
-
-}else{
-res.send("you are not permitted to enter..only for admins")
-}
+  } else {
+    res.send("you are not permitted to enter..only for admins")
+  }
 }).post(upload.single("file"), function (req, res, next) {
-const {title,content}=req.body;
-const imageName=req.file.filename;
+  const { title, content } = req.body;
+  const imageName = req.file.filename;
 
-  imageModel.findOneAndUpdate({title:title},{$push:{imageName}},(err,result)=>{
-if (!result) {
-  const imageData=new imageModel({
-  title:title,
-  content:content,
-  imageName:[imageName]
-  });
-  imageData.save((err,doc)=>{
-    if (err) {
-      throw err
-    }else{}
-  });
+  imageModel.findOneAndUpdate({ title: title }, { $push: { imageName } }, (err, result) => {
+    if (!result) {
+      const imageData = new imageModel({
+        title: title,
+        content: content,
+        imageName: [imageName]
+      });
+      imageData.save((err, doc) => {
+        if (err) {
+          throw err
+        } else { }
+      });
 
-    res.redirect("/");
-} else {
+      res.redirect("/");
+    } else {
 
-res.send("successfully updated file.")
-}
+      res.send("successfully updated file.")
+    }
+  })
+
+
+
 })
 
+const hostname = "0.0.0.0";
+
+app.listen(process.env.PORT || 3000, hostname, function () {
 
 })
-    app.listen(process.env.PORT || 3000, function() {
 
-          })
-        
